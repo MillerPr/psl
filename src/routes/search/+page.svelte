@@ -5,8 +5,14 @@
 
 <div class="container flex flex-col items-center">
 	<h1>PSL Download Page</h1>
+
 	<p class="prose">
-		Just enter the unique identifier portion of the IIIF manifest, not the entire link. For example,
+		Browse and search for image collections on the
+		<a href="https://bibnum.explore.psl.eu/s/psl/ark:/18469/25080">PSL website</a>. Copy the IIIF
+		manifest of any given collection using the IIIF icon below the viewer.
+	</p>
+	<p class="prose">
+		Enter only the unique identifier portion of the IIIF manifest, not the entire link. For example,
 		if the entire link is https://bibnum.explore.psl.eu/iiif/3/<span class="text-red-600"
 			>258mx</span
 		>/manifest then just enter 258mx.
