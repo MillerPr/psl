@@ -4,7 +4,7 @@
 </script>
 
 <div class="container mx-auto">
-	<p>PSL -- using a hard-coded manifest URL.</p>
+	<p>PSL</p>
 	<ol style="list-style:decimal">
 		{#each data.items as image, i}
 			{#each image.items as image_2}
@@ -13,7 +13,7 @@
 						<li>
 							<a
 								href={`${image_3.body.id.substring(0, image_3.body.id.indexOf('full/') + 'full/'.length)}${image.width},/0/default.jpg`}
-								>{image_3.body.id}</a
+								>{i}--{image_3.body.id}</a
 							>
 						</li>
 					{/if}
