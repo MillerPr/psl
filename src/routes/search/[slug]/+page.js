@@ -1,6 +1,5 @@
 export const load = async ({ fetch, params }) => {
-	const match = params.slug.match(/'.*'/);
-	const apiUrl = match ? match[1] : params.slug;
+	const apiUrl = `https://bibnum.explore.psl.eu/iiif/3/${params.slug}/manifest`;
 	try {
 		const response = await fetch(apiUrl);
 		if (!response.ok) {
