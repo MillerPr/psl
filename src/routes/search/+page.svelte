@@ -12,16 +12,24 @@
 		manifest of any given collection using the IIIF icon below the viewer.
 	</p>
 	<p class="prose">
-		Enter only the unique identifier portion of the IIIF manifest, not the entire link. For example,
-		if the entire link is https://bibnum.explore.psl.eu/iiif/3/<span class="text-red-600"
-			>258mx</span
-		>/manifest then just enter 258mx.
+		Enter the unique identifier of the IIIF manifest in the field below, not the entire link. For
+		example, if the entire link is: <i
+			>https://bibnum.explore.psl.eu/iiif/3/<span class="text-red-600">258mx</span>/manifest</i
+		>, then just enter <span class="text-red-600">258mx</span> in the field below.
+	</p>
+	<p class="prose">
+		The search should return a list of image links. I recommend using the Firefox extension called
+		<a href="https://addons.mozilla.org/en-US/firefox/addon/downthemall/">DownThemAll</a> to facilitate
+		a download of these images. Please respect the license and rights as indicated on the PSL website.
 	</p>
 
 	<div class="mt-8">
 		<form action="{page.url.pathname}/{query}" method="GET">
-			<input bind:value={query} placeholder="Paste IIIF Manifest ID" />
-			<button type="submit">Submit</button>
+			<input bind:value={query} placeholder="Paste IIIF Manifest ID" class="rounded-sm" />
+			<button
+				class="rounded-sm border-1 border-blue-500 bg-blue-100 p-2 px-4 hover:border-gray-400 hover:bg-gray-400"
+				type="submit">Submit</button
+			>
 		</form>
 	</div>
 </div>
