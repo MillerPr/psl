@@ -1,53 +1,43 @@
 <script>
+	import { goto } from '$app/navigation';
+
 	let { query } = $props();
-	import { page } from '$app/state';
 </script>
 
-<div class="container flex flex-col items-center">
-	<h1>PSL Download Page</h1>
-
-	<p class="prose">
+<main
+	class="prose container flex flex-col items-center gap-4 self-center justify-self-center py-10"
+>
+	<h1 class="!my-0 !mb-4">PSL Download Page</h1>
+	<p class="!my-0">
 		Browse and search for image collections on the
-		<a href="https://bibnum.explore.psl.eu/s/psl/ark:/18469/25080">PSL website</a>. Copy the IIIF
-		manifest of any given collection using the IIIF icon below the viewer.
+		<a href="https://bibnum.explore.psl.eu/s/psl/ark:/18469/25080" target="_blank">PSL website</a>.
+		Copy the IIIF manifest of any given collection using the IIIF icon below the viewer.
 	</p>
-	<p class="prose">
+	<p class="!my-0">
 		Enter the unique identifier of the IIIF manifest in the field below, not the entire link. For
-		example, if the entire link is: <i
-			>https://bibnum.explore.psl.eu/iiif/3/<span class="text-red-600">258mx</span>/manifest</i
+		example, if the entire link is: <span class="italic"
+			>https://bibnum.explore.psl.eu/iiif/3/<span class="text-red-600">258mx</span>/manifest</span
 		>, then just enter <span class="text-red-600">258mx</span> in the field below.
 	</p>
-	<p class="prose">
-		The search should return a list of image links. I recommend using the Firefox extension called
-		<a href="https://addons.mozilla.org/en-US/firefox/addon/downthemall/">DownThemAll</a> to facilitate
-		a download of these images. Please respect the license and rights as indicated on the PSL website.
+	<p class="!my-0">
+		The search should return a list of image links. If you want to download the images, please
+		respect the license and rights as indicated on the PSL website.
 	</p>
-
-	<div class="mt-8">
-		<form action="{page.url.pathname}/{query}" method="GET">
-			<input bind:value={query} placeholder="Paste IIIF Manifest ID" class="rounded-sm" />
-			<button
-				class="rounded-sm border-1 border-blue-500 bg-blue-100 p-2 px-4 hover:border-gray-400 hover:bg-gray-400"
-				type="submit">Submit</button
-			>
-		</form>
-	</div>
-</div>
-
-<style>
-	:global(body) {
-		font-family: Arial, sans-serif;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 1rem;
-		margin-top: 1rem;
-	}
-
-	h1 {
-		font-size: 2rem;
-		margin-top: 0.5rem;
-		margin-bottom: 0.5rem;
-	}
-</style>
+	<form
+		onsubmit={(e) => {
+			e.preventDefault();
+			goto(`/search/${query}`);
+		}}
+		class="mt-6 flex w-full flex-row gap-2"
+	>
+		<input
+			bind:value={query}
+			placeholder="Paste IIIF Manifest ID"
+			class="w-full rounded-sm border-none ring"
+		/>
+		<button
+			class="cursor-pointer rounded-sm bg-blue-100 px-4 ring ring-blue-500 transition-colors hover:bg-blue-200 active:bg-blue-300"
+			type="submit">Submit</button
+		>
+	</form>
+</main>
