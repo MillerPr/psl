@@ -100,12 +100,12 @@
 </script>
 
 <div class="container mx-auto">
-	<p>PSL</p>
+	<p class="my-4 text-2xl">PSL images from IIIF manifest</p>
 	<button
 		onclick={() => {
 			downloadAllImages();
 		}}
-		class="cursor-pointer rounded-md bg-blue-500 px-4 py-2 text-white"
+		class="my-4 cursor-pointer rounded-md bg-blue-500 px-4 py-2 text-white"
 	>
 		Download all images
 	</button>
