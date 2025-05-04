@@ -26,7 +26,7 @@
 	<form
 		onsubmit={(e) => {
 			e.preventDefault();
-			goto(`/search/${query}`);
+			goto(`/psl/${query}`);
 		}}
 		class="mt-6 flex w-full flex-row gap-2"
 	>

@@ -3,7 +3,7 @@
 	import JSZip from 'jszip';
 
 	const { data } = $props();
-	$inspect(data);
+	let imageCount = $state(0);
 
 	let { slug } = $page.params;
 
@@ -107,7 +107,14 @@
 		}}
 		class="my-4 cursor-pointer rounded-md bg-blue-500 px-4 py-2 text-white"
 	>
-		Download all images
+		Download {data.items.reduce((acc, image) => {
+			return (
+				acc +
+				image.items.reduce((acc2, image_2) => {
+					return acc2 + image_2.items.filter((image_3) => image_3?.body?.id && image?.width).length;
+				}, 0)
+			);
+		}, 0)} images
 	</button>
 	<ol style="list-style:decimal">
 		{#each data.items as image, index}
